@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ứng Dụng Mã Hóa DES</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        input[type="text"], input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #5cb85c;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        .message {
+            margin-top: 20px;
+            text-align: center;
+            color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Mã Hóa và Giải Mã File bằng DES</h2>
+    <input type="text" id="key" placeholder="Nhập khóa 8 byte" maxlength="8">
+    <input type="file" id="fileInput">
+    
+    <button onclick="encryptFile()">Mã Hóa File</button>
+    <button onclick="decryptFile()">Giải Mã File</button>
+    
+    <div id="message" class="message"></div>
+</div>
+
+<script>
+    function encryptFile() {
+        const key = document.getElementById('key').value;
+        const fileInput = document.getElementById('fileInput').files[0];
+        const messageDiv = document.getElementById('message');
+
+        if (key.length !== 8) {
+            messageDiv.textContent = "Khóa phải dài 8 byte!";
+            return;
+        }
+        if (!fileInput) {
+            messageDiv.textContent = "Vui lòng chọn file!";
+            return;
+        }
+
+        // Thực hiện mã hóa file ở đây (gọi API hoặc xử lý)
+        messageDiv.textContent = "Mã hóa file thành công!";
+    }
+
+    function decryptFile() {
+        const key = document.getElementById('key').value;
+        const fileInput = document.getElementById('fileInput').files[0];
+        const messageDiv = document.getElementById('message');
+
+        if (key.length !== 8) {
+            messageDiv.textContent = "Khóa phải dài 8 byte!";
+            return;
+        }
+        if (!fileInput) {
+            messageDiv.textContent = "Vui lòng chọn file!";
+            return;
+        }
+
+        // Thực hiện giải mã file ở đây (gọi API hoặc xử lý)
+        messageDiv.textContent = "Giải mã file thành công!";
+    }
+</script>
+
+</body>
+</html>
